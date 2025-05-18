@@ -1,0 +1,21 @@
+name: Run Node App
+
+on:
+  push:
+    branches: [ main ]  # Or master
+
+jobs:
+  run-app:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+
+    - name: Run app.js
+      run: node app.js
